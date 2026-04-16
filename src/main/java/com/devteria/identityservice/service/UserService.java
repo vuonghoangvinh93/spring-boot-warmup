@@ -33,6 +33,7 @@ public class UserService {
 
     public UserResponse createUser(UserCreationRequest request) {
         log.info("User creation request: {}", request);
+        log.info("User creation request: {}", request.toString() + "dev");
         if (userRepository.existsByUsername(request.getUsername()))
             throw new AppException(ErrorCode.USER_EXISTED);
 
