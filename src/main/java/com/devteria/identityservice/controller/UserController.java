@@ -22,6 +22,12 @@ import java.util.List;
 @Slf4j
 public class UserController {
     UserService userService;
+    @GetMapping("/myinfor")
+    ApiResponse<UserResponse> getMyInformation() {
+        ApiResponse<UserResponse> response = new ApiResponse<>();
+        response.setResult(userService.getMyUser());
+        return response;
+    }
 
     @PostMapping
     ApiResponse<UserResponse> createUser(@RequestBody @Valid UserCreationRequest request){
